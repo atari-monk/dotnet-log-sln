@@ -1,10 +1,12 @@
 using CommandDotNet;
+using CommandDotNet.Helper;
 using CommandDotNet.Repl;
 using Unity;
 
 namespace Log.Modern.ConsoleApp;
 
-public class AppProgram : Console.Modern.Lib.AppProgramUnity<AppProgram>
+public class AppProgram 
+    : AppProgramUnity<AppProgram>
 {
 	private static bool inSession;
 

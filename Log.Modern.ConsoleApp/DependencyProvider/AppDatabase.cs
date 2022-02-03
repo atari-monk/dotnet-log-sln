@@ -1,11 +1,12 @@
-using Core;
-using Core.Lib;
+using DIHelper.Unity;
+using EFCoreHelper;
 using Log.Data;
 using Unity;
 
 namespace Log.Modern.ConsoleApp;
 
-public class AppDatabase : UnityDependencyProvider
+public class AppDatabase 
+    : UnityDependencySuite
 {
     public AppDatabase(
         IUnityContainer container) 
@@ -13,7 +14,7 @@ public class AppDatabase : UnityDependencyProvider
     {
     }
 
-    public override void RegisterDependencies()
+    public override void Register()
     {
         Container.RegisterSingleton<LogContext>();
 

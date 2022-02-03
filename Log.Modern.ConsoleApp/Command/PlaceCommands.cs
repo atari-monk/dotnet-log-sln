@@ -1,5 +1,5 @@
-using CLI.Core.Lib;
 using CommandDotNet;
+using CRUDCommandHelper;
 using Log.Modern.Lib;
 
 namespace Log.Modern.ConsoleApp;

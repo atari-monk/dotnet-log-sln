@@ -5,7 +5,7 @@ using Unity;
 
 namespace Log.Modern.ConsoleApp;
 
-public class AppOutput : CLI.Core.Lib.AppOutput
+public class AppOutput : DIHelper.Unity.AppOutput
 {
     public AppOutput(
         IUnityContainer container) 

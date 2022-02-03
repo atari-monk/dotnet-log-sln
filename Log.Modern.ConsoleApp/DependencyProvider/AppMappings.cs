@@ -1,11 +1,10 @@
 ﻿using AutoMapper;
-using Core.Lib;
 using Log.Data;
 using Unity;
 
 namespace Log.Modern.ConsoleApp;
 
-public class AppMappings : CLI.Core.Lib.AppMappings
+public class AppMappings : DIHelper.Unity.AppMappings
 {
     public AppMappings(
         IUnityContainer container)
