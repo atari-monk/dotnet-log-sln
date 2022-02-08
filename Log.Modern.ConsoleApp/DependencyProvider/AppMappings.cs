@@ -4,7 +4,8 @@ using Unity;
 
 namespace Log.Modern.ConsoleApp;
 
-public class AppMappings : DIHelper.Unity.AppMappings
+public class AppMappings 
+    : DIHelper.Unity.AppMappings
 {
     public AppMappings(
         IUnityContainer container)

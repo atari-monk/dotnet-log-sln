@@ -6,7 +6,7 @@ using Unity;
 namespace Log.Modern.ConsoleApp;
 
 public class AppDatabase 
-    : UnityDependencySuite
+    : UnityDependencySet
 {
     public AppDatabase(
         IUnityContainer container) 
