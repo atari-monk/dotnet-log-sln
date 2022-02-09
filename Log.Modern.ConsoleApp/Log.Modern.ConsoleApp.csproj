@@ -19,28 +19,28 @@
 
 	<ItemGroup>
 		<Reference Include="CRUDCommandHelper">
-			<HintPath>..\..\build\Build\crud-command-helper\CRUDCommandHelper\CRUDCommandHelper.dll</HintPath>
+			<HintPath>..\..\..\Build\crud-command-helper\CRUDCommandHelper\CRUDCommandHelper.dll</HintPath>
 		</Reference>
 		<Reference Include="ModelHelper">
-			<HintPath>..\..\build\Build\model-helper\ModelHelper\ModelHelper.dll</HintPath>
+			<HintPath>..\..\..\Build\model-helper\ModelHelper\ModelHelper.dll</HintPath>
 		</Reference>
 		<Reference Include="DataToTable">
-			<HintPath>..\..\build\Build\datatotable\DataToTable\DataToTable.dll</HintPath>
+			<HintPath>..\..\..\Build\datatotable\DataToTable\DataToTable.dll</HintPath>
 		</Reference>
 		<Reference Include="DIHelper">
-			<HintPath>..\..\build\Build\di-helper\DIHelper\DIHelper.dll</HintPath>
+			<HintPath>..\..\..\Build\di-helper\DIHelper\DIHelper.dll</HintPath>
 		</Reference>
 		<Reference Include="EFCoreHelper">
-			<HintPath>..\..\build\Build\efcore-helper\EFCoreHelper\EFCoreHelper.dll</HintPath>
+			<HintPath>..\..\..\Build\efcore-helper\EFCoreHelper\EFCoreHelper.dll</HintPath>
 		</Reference>
-		<Reference Include="CommandDotNetHelper">
-			<HintPath>..\..\build\Build\commanddotnet-helper\CommandDotNet.Helper\CommandDotNet.Helper.dll</HintPath>
+		<Reference Include="CommandDotNet.Helper">
+			<HintPath>..\..\..\Build\commanddotnet-helper\CommandDotNet.Helper\CommandDotNet.Helper.dll</HintPath>
 		</Reference>
 		<Reference Include="Log.Data">
-			<HintPath>..\..\build\Build\log-data\Log.Data\Log.Data.dll</HintPath>
+			<HintPath>..\..\..\Build\log-data\Log.Data\Log.Data.dll</HintPath>
 		</Reference>
 		<Reference Include="Log.Modern.Lib">
-			<HintPath>..\..\build\Build\log-modern-lib\Log.Modern.Lib\Log.Modern.Lib.dll</HintPath>
+			<HintPath>..\..\..\Build\log-modern-lib\Log.Modern.Lib\Log.Modern.Lib.dll</HintPath>
 		</Reference>
 	</ItemGroup>
 </Project>
