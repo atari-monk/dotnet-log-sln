@@ -18,8 +18,11 @@ public class UnityDependencySuite
     protected override void RegisterConsoleOutput() => 
         RegisterSet<AppOutput>();
 
-    protected override void RegisterDataMappings() =>
+    protected override void RegisterDataMappings()
+    {
         RegisterSet<AppMappings>();
+        RegisterSet<DataFilter>();        
+    }
 
     protected override void RegisterCommands() => 
         RegisterSet<AppCommands>();
