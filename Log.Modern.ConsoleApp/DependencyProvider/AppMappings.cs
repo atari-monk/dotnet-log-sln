@@ -24,7 +24,7 @@ public class AppMappings
             cfg.CreateMap<Lib.PlaceArgUpdate, PlaceUpdate>();
             cfg.CreateMap<Lib.CategoryArgUpdate, CategoryUpdate>();
             cfg.CreateMap<Lib.TaskArgUpdate, TaskUpdate>();
-            cfg.CreateMap<Lib.LogArgUpdate, LogUpdate>();
+            cfg.CreateMap<Lib.LogArgUpdateReset, LogUpdate>();
         });
         return config; 
     }

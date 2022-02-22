@@ -42,7 +42,7 @@ public class LogCommands : Commands
     }
 
     [Command(UpdateCommand)]
-    public void Update(LogArgUpdate model)
+    public void Update(LogArgUpdateReset model)
     {
         updateCommand.Update(model);
         ReadAfterChange();
