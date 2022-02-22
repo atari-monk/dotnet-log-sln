@@ -42,6 +42,6 @@ public class AppCommands
         Container.RegisterSingleton<IUpdateCommand<PlaceArgUpdate>, PlaceUpdateCommand>();
         Container.RegisterSingleton<IUpdateCommand<CategoryArgUpdate>, CategoryUpdateCommand>();
         Container.RegisterSingleton<IUpdateCommand<TaskArgUpdate>, TaskUpdateCommand>();
-        Container.RegisterSingleton<IUpdateCommand<LogArgUpdate>, LogUpdateCommand>();
+        Container.RegisterSingleton<IUpdateCommand<LogArgUpdateReset>, LogUpdateCommand>();
     }
 }

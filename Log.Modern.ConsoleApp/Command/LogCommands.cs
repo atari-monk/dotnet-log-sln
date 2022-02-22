@@ -11,12 +11,12 @@ public class LogCommands : Commands
 
     private readonly IReadCommand<LogArgFilter> readCommand;
     private readonly IInsertCommand<LogArg> insertCommand;
-    private readonly IUpdateCommand<LogArgUpdate> updateCommand;
+    private readonly IUpdateCommand<LogArgUpdateReset> updateCommand;
 
     public LogCommands(
         IReadCommand<LogArgFilter> readCommand
         , IInsertCommand<LogArg> insertCommand
-        , IUpdateCommand<LogArgUpdate> updateCommand)
+        , IUpdateCommand<LogArgUpdateReset> updateCommand)
     {
         this.readCommand = readCommand;
         this.insertCommand = insertCommand;
