@@ -1,4 +1,5 @@
 using DIHelper.Unity;
+using Log.Data;
 using Log.Modern.Lib;
 using Unity;
 
@@ -15,6 +16,9 @@ public class DataFilter
 
     public override void Register()
     {
+        Container.RegisterSingleton<
+            IFilterFactory<LogModel, LogArgFilter>
+            , LogFilter>();
         Container.RegisterSingleton<
             IFilterFactory<Data.Task, TaskArgFilter>
             , TaskFilter>();
