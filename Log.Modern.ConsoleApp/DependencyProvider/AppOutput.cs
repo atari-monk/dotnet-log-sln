@@ -24,6 +24,8 @@ public class AppOutput
     
     protected override void RegisterTableProviders()
     {
+        Container.RegisterType<ITableTextEditor, TableTextEditor>();
+
         Container.RegisterSingleton<IDataToText<LogModel>, LogTableProvider>();
         Container.RegisterSingleton<IDataToText<Data.Task>, TaskTableProvider>();
         Container.RegisterSingleton<IDataToText<Data.Category>, ModelATable<Data.Category>>();
