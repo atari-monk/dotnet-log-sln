@@ -17,7 +17,7 @@
 		<PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.1" />
 	</ItemGroup>
 
-	<!-- Debug References Start-->
+	<!-- Debug References -->
 	<!-- <ItemGroup>
 		<Reference Include="CRUDCommandHelper">
 			<HintPath>..\..\crud-command-helper\CRUDCommandHelper\bin\Debug\net6.0\CRUDCommandHelper.dll</HintPath>
@@ -29,9 +29,8 @@
 			<HintPath>..\..\log-modern-lib\Log.Modern.Lib\bin\Debug\net6.0\Log.Modern.Lib.dll</HintPath>
 		</Reference>
 	</ItemGroup> -->
-	<!-- Debug References End-->
 
-	<!-- Release References Start-->
+	<!-- Release References -->
 	<ItemGroup>
 		<Reference Include="ModelHelper">
 			<HintPath>..\..\..\Build\model-helper\ModelHelper\ModelHelper.dll</HintPath>
@@ -58,5 +57,4 @@
 			<HintPath>..\..\..\Build\log-modern-lib\Log.Modern.Lib\Log.Modern.Lib.dll</HintPath>
 		</Reference>
 	</ItemGroup>
-	<!-- Release References End-->
 </Project>
