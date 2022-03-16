@@ -5,5 +5,6 @@ using Unity;
 IBootstraper booter = new Bootstraper(
 	new UnityDependencySuite(
 		new UnityContainer()
-			.AddExtension(new Diagnostic())));
+			.AddExtension(
+				new Diagnostic())));
 booter.Boot(args);

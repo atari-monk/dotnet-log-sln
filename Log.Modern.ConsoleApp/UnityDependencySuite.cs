@@ -1,4 +1,6 @@
-using DIHelper;
+using CommandDotNet.Unity.Helper;
+using Config.Wrapper;
+using Serilog.Wrapper;
 using Unity;
 
 namespace Log.Modern.ConsoleApp;
@@ -10,6 +12,12 @@ public class UnityDependencySuite
         IUnityContainer container) 
         : base(container) 
     {
+    }
+
+    protected override void RegisterAppData()
+    {
+        RegisterSet<AppLoggerSet>();
+        RegisterSet<AppConfigSet>();
     }
 
     protected override void RegisterDatabase()=> 
@@ -27,6 +35,8 @@ public class UnityDependencySuite
     protected override void RegisterCommands() => 
         RegisterSet<AppCommands>();
 
-    protected override void RegisterProgram() => 
-        Container.RegisterSingleton<IAppProgram, AppProgram>();
+    protected override void RegisterProgram()
+    {
+        RegisterSet<AppProgSet<AppProg>>();
+    }
 }
