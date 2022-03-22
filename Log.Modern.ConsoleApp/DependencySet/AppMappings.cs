@@ -5,7 +5,7 @@ using Unity;
 namespace Log.Modern.ConsoleApp;
 
 public class AppMappings 
-    : DIHelper.Unity.AppMappings
+    : ModelHelper.AppMappings
 {
     public AppMappings(
         IUnityContainer container)
@@ -15,16 +15,16 @@ public class AppMappings
 
     protected override MapperConfiguration CreateMap()
     {
-        var config = new MapperConfiguration(cfg => {
-            cfg.CreateMap<Lib.PlaceArg, Place>();
-            cfg.CreateMap<Lib.CategoryArg, Category>();
-            cfg.CreateMap<Lib.TaskArg, Data.Task>();
-            cfg.CreateMap<Lib.LogArg, LogModel>();
+        var config = new MapperConfiguration(c => {
+            c.CreateMap<Lib.PlaceArg, Place>();
+            c.CreateMap<Lib.CategoryArg, Category>();
+            c.CreateMap<Lib.TaskArg, Data.Task>();
+            c.CreateMap<Lib.LogArg, LogModel>();
 
-            cfg.CreateMap<Lib.PlaceArgUpdate, PlaceUpdate>();
-            cfg.CreateMap<Lib.CategoryArgUpdate, CategoryUpdate>();
-            cfg.CreateMap<Lib.TaskArgUpdate, TaskUpdate>();
-            cfg.CreateMap<Lib.LogArgUpdateReset, LogUpdate>();
+            c.CreateMap<Lib.PlaceArgUpdate, PlaceUpdate>();
+            c.CreateMap<Lib.CategoryArgUpdate, CategoryUpdate>();
+            c.CreateMap<Lib.TaskArgUpdate, TaskUpdate>();
+            c.CreateMap<Lib.LogArgUpdateReset, LogUpdate>();
         });
         return config; 
     }

@@ -6,7 +6,7 @@ using Unity;
 namespace Log.Modern.ConsoleApp;
 
 public class AppOutput 
-    : DIHelper.Unity.AppOutput
+    : CLIHelper.Unity.AppOutput
 {
     public AppOutput(
         IUnityContainer container) 
