@@ -16,11 +16,12 @@ public class DataFilter
 
     public override void Register()
     {
-        Container.RegisterSingleton<
-            IFilterFactory<LogModel, LogArgFilter>
-            , LogFilter>();
-        Container.RegisterSingleton<
-            IFilterFactory<Data.Task, TaskArgFilter>
-            , TaskFilter>();
+        Container
+            .RegisterSingleton<
+                IFilterFactory<LogModel, LogArgFilter>
+                , LogFilter>()
+            .RegisterSingleton<
+                IFilterFactory<Data.Task, TaskArgFilter>
+                , TaskFilter>();
     }
 }

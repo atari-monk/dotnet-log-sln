@@ -16,13 +16,14 @@ public class AppDatabase
 
     public override void Register()
     {
-        Container.RegisterSingleton<LogContext>();
+        Container
+            .RegisterSingleton<LogContext>()
 
-        Container.RegisterSingleton<IGenericRepository<Data.Category>, EFGenericRepository<Data.Category, LogContext>>();
-        Container.RegisterSingleton<IGenericRepository<Data.Place>, EFGenericRepository<Data.Place, LogContext>>();
-        Container.RegisterSingleton<IGenericRepository<Data.Task>, EFGenericRepository<Data.Task, LogContext>>();
-        Container.RegisterSingleton<ILogRepo, LogRepo>();
+            .RegisterSingleton<IGenericRepository<Data.Category>, EFGenericRepository<Data.Category, LogContext>>()
+            .RegisterSingleton<IGenericRepository<Data.Place>, EFGenericRepository<Data.Place, LogContext>>()
+            .RegisterSingleton<IGenericRepository<Data.Task>, EFGenericRepository<Data.Task, LogContext>>()
+            .RegisterSingleton<ILogRepo, LogRepo>()
 
-        Container.RegisterSingleton<ILogUnitOfWork, LogUnitOfWork>();
+            .RegisterSingleton<ILogUnitOfWork, LogUnitOfWork>();
     }
 }

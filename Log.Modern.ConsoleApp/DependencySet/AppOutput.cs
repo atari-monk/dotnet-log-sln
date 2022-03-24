@@ -16,19 +16,20 @@ public class AppOutput
 
     protected override void RegisterColumnCalculators()
     {
-        Container.RegisterSingleton<IColumnCalculator<LogModel>, ColumnCalculator<LogModel>>();
-        Container.RegisterSingleton<IColumnCalculator<Data.Task>, ColumnCalculator<Data.Task>>();
-        Container.RegisterSingleton<IColumnCalculator<Data.Category>, ColumnCalculator<Data.Category>>();
-        Container.RegisterSingleton<IColumnCalculator<Data.Place>, ColumnCalculator<Data.Place>>();
+        Container
+            .RegisterSingleton<IColumnCalculator<LogModel>, ColumnCalculator<LogModel>>()
+            .RegisterSingleton<IColumnCalculator<Data.Task>, ColumnCalculator<Data.Task>>()
+            .RegisterSingleton<IColumnCalculator<Data.Category>, ColumnCalculator<Data.Category>>()
+            .RegisterSingleton<IColumnCalculator<Data.Place>, ColumnCalculator<Data.Place>>();
     }
     
     protected override void RegisterTableProviders()
     {
-        Container.RegisterType<ITableTextEditor, TableTextEditor>();
-
-        Container.RegisterSingleton<IDataToText<LogModel>, LogTableProvider>();
-        Container.RegisterSingleton<IDataToText<Data.Task>, TaskTableProvider>();
-        Container.RegisterSingleton<IDataToText<Data.Category>, ModelATable<Data.Category>>();
-        Container.RegisterSingleton<IDataToText<Data.Place>, ModelATable<Data.Place>>();
+        Container
+            .RegisterType<ITableTextEditor, TableTextEditor>()
+            .RegisterSingleton<IDataToText<LogModel>, LogTableProvider>()
+            .RegisterSingleton<IDataToText<Data.Task>, TaskTableProvider>()
+            .RegisterSingleton<IDataToText<Data.Category>, ModelATable<Data.Category>>()
+            .RegisterSingleton<IDataToText<Data.Place>, ModelATable<Data.Place>>();
     }
 }

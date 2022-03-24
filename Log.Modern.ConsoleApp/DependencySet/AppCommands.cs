@@ -23,25 +23,28 @@ public class AppCommands
 
     private void RegisterReadCommands()
     {
-        Container.RegisterSingleton<IReadCommand<PlaceArgFilter>, PlaceReadCommand>();
-        Container.RegisterSingleton<IReadCommand<CategoryArgFilter>, CategoryReadCommand>();
-        Container.RegisterSingleton<IReadCommand<TaskArgFilter>, TaskReadCommand>();
-        Container.RegisterSingleton<IReadCommand<LogArgFilter>, LogReadCommand>();
+        Container
+            .RegisterSingleton<IReadCommand<PlaceArgFilter>, PlaceReadCommand>()
+            .RegisterSingleton<IReadCommand<CategoryArgFilter>, CategoryReadCommand>()
+            .RegisterSingleton<IReadCommand<TaskArgFilter>, TaskReadCommand>()
+            .RegisterSingleton<IReadCommand<LogArgFilter>, LogReadCommand>();
     }
 
     private void RegisterInsertCommands()
     {
-        Container.RegisterSingleton<IInsertCommand<PlaceArg>, PlaceInsertCommand>();
-        Container.RegisterSingleton<IInsertCommand<CategoryArg>, CategoryInsertCommand>();
-        Container.RegisterSingleton<IInsertCommand<Lib.TaskArg>, TaskInsertCommand>();
-        Container.RegisterSingleton<IInsertCommand<Lib.LogArg>, LogInsertCommand>();
+        Container
+            .RegisterSingleton<IInsertCommand<PlaceArg>, PlaceInsertCommand>()
+            .RegisterSingleton<IInsertCommand<CategoryArg>, CategoryInsertCommand>()
+            .RegisterSingleton<IInsertCommand<Lib.TaskArg>, TaskInsertCommand>()
+            .RegisterSingleton<IInsertCommand<Lib.LogArg>, LogInsertCommand>();
     }
 
     private void RegisterUpdateCommands()
     {
-        Container.RegisterSingleton<IUpdateCommand<PlaceArgUpdate>, PlaceUpdateCommand>();
-        Container.RegisterSingleton<IUpdateCommand<CategoryArgUpdate>, CategoryUpdateCommand>();
-        Container.RegisterSingleton<IUpdateCommand<TaskArgUpdate>, TaskUpdateCommand>();
-        Container.RegisterSingleton<IUpdateCommand<LogArgUpdateReset>, LogUpdateCommand>();
+        Container
+            .RegisterSingleton<IUpdateCommand<PlaceArgUpdate>, PlaceUpdateCommand>()
+            .RegisterSingleton<IUpdateCommand<CategoryArgUpdate>, CategoryUpdateCommand>()
+            .RegisterSingleton<IUpdateCommand<TaskArgUpdate>, TaskUpdateCommand>()
+            .RegisterSingleton<IUpdateCommand<LogArgUpdateReset>, LogUpdateCommand>();
     }
 }
