@@ -68,6 +68,9 @@
 		<Reference Include="Log.Data">
 			<HintPath>..\..\log-data\Log.Data\bin\Debug\net6.0\Log.Data.dll</HintPath>
 		</Reference>
+		<Reference Include="Log.Table">
+			<HintPath>..\..\log-table\Log.Table\bin\Debug\net6.0\Log.Table.dll</HintPath>
+		</Reference>
 		<Reference Include="Log.Modern.Lib">
 			<HintPath>..\..\log-modern-lib\Log.Modern.Lib\bin\Debug\net6.0\Log.Modern.Lib.dll</HintPath>
 		</Reference>
@@ -110,6 +113,9 @@
 		</Reference>	
 		<Reference Include="Log.Data">
 			<HintPath>..\..\..\Build\log-data\Log.Data\Log.Data.dll</HintPath>
+		</Reference>
+		<Reference Include="Log.Table">
+			<HintPath>..\..\..\Build\log-table\Log.Table\Log.Table.dll</HintPath>
 		</Reference>
 		<Reference Include="Log.Modern.Lib">
 			<HintPath>..\..\..\Build\log-modern-lib\Log.Modern.Lib\Log.Modern.Lib.dll</HintPath>

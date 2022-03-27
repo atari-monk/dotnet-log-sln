@@ -1,5 +1,6 @@
 using CommandDotNet.Unity.Helper;
 using Config.Wrapper;
+using Log.Table;
 using Serilog.Wrapper;
 using Unity;
 
@@ -24,7 +25,7 @@ public class UnityDependencySuite
         RegisterSet<AppDatabase>();
 
     protected override void RegisterConsoleOutput() => 
-        RegisterSet<AppOutput>();
+        RegisterSet<LogTableSet>();
 
     protected override void RegisterDataMappings()
     {
