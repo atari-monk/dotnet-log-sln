@@ -1,6 +1,6 @@
 using CommandDotNet.Unity.Helper;
 using Config.Wrapper;
-using Log.Table;
+using Log.Table.Unity;
 using Serilog.Wrapper;
 using Unity;
 
