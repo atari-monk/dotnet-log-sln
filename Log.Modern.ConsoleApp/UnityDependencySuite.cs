@@ -1,7 +1,9 @@
 using CommandDotNet.Unity.Helper;
 using Config.Wrapper;
+using Config.Wrapper.Unity;
 using Log.Table.Unity;
 using Serilog.Wrapper;
+using Serilog.Wrapper.Unity;
 using Unity;
 
 namespace Log.Modern.ConsoleApp;
