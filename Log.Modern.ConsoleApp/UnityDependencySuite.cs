@@ -1,3 +1,4 @@
+using CLIHelper.Unity;
 using CommandDotNet.Unity.Helper;
 using Config.Wrapper;
 using Config.Wrapper.Unity;
@@ -25,6 +26,9 @@ public class UnityDependencySuite
 
     protected override void RegisterDatabase()=> 
         RegisterSet<AppDatabase>();
+
+    protected override void RegisterConsoleInput() => 
+        RegisterSet<CliIOSet>();
 
     protected override void RegisterConsoleOutput() => 
         RegisterSet<LogTableSet>();

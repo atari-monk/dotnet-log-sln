@@ -13,6 +13,7 @@
 		<PackageReference Include="CommandDotNet" Version="6.1.0-alpha.repl" />
 		<PackageReference Include="CommandDotNet.DataAnnotations" Version="2.0.3" />
 		<PackageReference Include="CommandDotNet.NameCasing" Version="3.0.1" />
+		<!-- Debug References CommandDotNet <PackageReference Include="Humanizer.Core" Version="2.11.10" /> -->
 		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.1" />
 		<PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.1" />
 		<PackageReference Include="Microsoft.Extensions.Configuration" Version="6.0.0" />
@@ -29,7 +30,23 @@
 			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</None>
   	</ItemGroup>
-	  
+	
+	<!-- Debug References CommandDotNet-->
+	<!-- <ItemGroup>
+		<Reference Include="CommandDotNet">
+			<HintPath>..\..\commanddotnet\CommandDotNet\bin\Debug\net5.0\CommandDotNet.dll</HintPath>
+		</Reference>
+		<Reference Include="CommandDotNet.DataAnnotations">
+			<HintPath>..\..\commanddotnet\CommandDotNet.DataAnnotations\bin\Debug\net5.0\CommandDotNet.DataAnnotations.dll</HintPath>
+		</Reference>
+		<Reference Include="CommandDotNet.NameCasing">
+			<HintPath>..\..\commanddotnet\CommandDotNet.NameCasing\bin\Debug\net5.0\CommandDotNet.NameCasing.dll</HintPath>
+		</Reference>
+		<Reference Include="CommandDotNet.IoC.MicrosoftDependencyInjection">
+			<HintPath>..\..\commanddotnet\CommandDotNet.IoC.MicrosoftDependencyInjection\bin\Debug\net5.0\CommandDotNet.IoC.MicrosoftDependencyInjection.dll</HintPath>
+		</Reference>
+	</ItemGropu> -->
+
 	<!-- Debug References -->
 	<!-- <ItemGroup>
 		<Reference Include="DIHelper">
