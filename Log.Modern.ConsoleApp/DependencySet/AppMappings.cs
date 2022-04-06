@@ -13,9 +13,10 @@ public class AppMappings
     {
     }
 
-    protected override MapperConfiguration CreateMap()
-    {
-        var config = new MapperConfiguration(c => {
+    protected override MapperConfiguration CreateMap() => 
+        new (
+        c =>
+        {
             c.CreateMap<Lib.PlaceArg, Place>();
             c.CreateMap<Lib.CategoryArg, Category>();
             c.CreateMap<Lib.TaskArg, Data.Task>();
@@ -26,6 +27,4 @@ public class AppMappings
             c.CreateMap<Lib.TaskArgUpdate, TaskUpdate>();
             c.CreateMap<Lib.LogArgUpdateReset, LogUpdate>();
         });
-        return config; 
-    }
 }
