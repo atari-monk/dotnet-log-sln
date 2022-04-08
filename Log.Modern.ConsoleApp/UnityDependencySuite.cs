@@ -41,8 +41,6 @@ public class UnityDependencySuite
     protected override void RegisterCommands() => 
         RegisterSet<AppCommands>();
 
-    protected override void RegisterProgram()
-    {
+    protected override void RegisterProgram() => 
         RegisterSet<AppProgSet<AppProg>>();
-    }
 }
