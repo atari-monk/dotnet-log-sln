@@ -9,12 +9,12 @@ public class LogCommands : Commands
 {
     private const string MainCommand = "log";
 
-    private readonly IReadCommand<LogArgFilter> readCommand;
+    private readonly IReadCommand<LogFilterArgs> readCommand;
     private readonly IInsertCommand<LogArg> insertCommand;
     private readonly IUpdateCommand<LogArgUpdateReset> updateCommand;
 
     public LogCommands(
-        IReadCommand<LogArgFilter> readCommand
+        IReadCommand<LogFilterArgs> readCommand
         , IInsertCommand<LogArg> insertCommand
         , IUpdateCommand<LogArgUpdateReset> updateCommand)
     {
@@ -24,7 +24,7 @@ public class LogCommands : Commands
     }
 
     [DefaultCommand()]
-    public void Read(LogArgFilter model)
+    public void Read(LogFilterArgs model)
     {
         readCommand.Read(model);
     }
@@ -38,7 +38,7 @@ public class LogCommands : Commands
 
     private void ReadAfterChange()
     {
-        readCommand.Read(new LogArgFilter());
+        readCommand.Read(new LogFilterArgs());
     }
 
     [Command(UpdateCommand)]

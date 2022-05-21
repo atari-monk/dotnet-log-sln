@@ -27,7 +27,7 @@ public class AppCommands
             .RegisterSingleton<IReadCommand<PlaceArgFilter>, PlaceReadCommand>()
             .RegisterSingleton<IReadCommand<CategoryArgFilter>, CategoryReadCommand>()
             .RegisterSingleton<IReadCommand<TaskArgFilter>, TaskReadCommand>()
-            .RegisterSingleton<IReadCommand<LogArgFilter>, LogReadCommand>();
+            .RegisterSingleton<IReadCommand<LogFilterArgs>, LogReadCommand>();
     }
 
     private void RegisterInsertCommands()
