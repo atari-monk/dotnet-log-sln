@@ -29,7 +29,7 @@ public class PlaceCommands : Commands
         readCommand.Read(model);
     }
 
-    [Command(InsertCommand)]
+    [Command(InsertCmd)]
     public void Insert(PlaceArg model)
     {
         insertCommand.Insert(model);
@@ -41,7 +41,7 @@ public class PlaceCommands : Commands
         readCommand.Read(new PlaceArgFilter());
     }
 
-    [Command(UpdateCommand)]
+    [Command(UpdateCmd)]
     public void Update(PlaceArgUpdate model)
     {
         updateCommand.Update(model);

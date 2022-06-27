@@ -29,7 +29,7 @@ public class TaskCommands : Commands
         readCommand.Read(model);
     }
 
-    [Command(InsertCommand)]
+    [Command(InsertCmd)]
     public void Insert(TaskArg model)
     {
         insertCommand.Insert(model);
@@ -41,7 +41,7 @@ public class TaskCommands : Commands
         readCommand.Read(new TaskArgFilter());
     }
 
-    [Command(UpdateCommand)]
+    [Command(UpdateCmd)]
     public void Update(TaskArgUpdate model)
     {
         updateCommand.Update(model);

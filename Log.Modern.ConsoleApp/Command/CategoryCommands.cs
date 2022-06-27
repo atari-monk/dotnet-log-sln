@@ -4,47 +4,58 @@ using Log.Modern.Lib;
 
 namespace Log.Modern.ConsoleApp;
 
-[Command(MainCommand)]
-public class CategoryCommands : Commands
+[Command(Main)]
+public class CategoryCommands
+    : Commands
 {
-    private const string MainCommand = "category";
+    private const string Main = "category";
 
-    private readonly IReadCommand<CategoryArgFilter> readCommand;
-    private readonly IInsertCommand<CategoryArg> insertCommand;
-    private readonly IUpdateCommand<CategoryArgUpdate> updateCommand;
+    private readonly IReadCommand<CategoryArgFilter> read;
+    private readonly IInsertCommand<CategoryArg> insert;
+    private readonly IUpdateCommand<CategoryArgUpdate> update;
+    private readonly IDeleteCommand<DeleteArgs> delete;
 
     public CategoryCommands(
-        IReadCommand<CategoryArgFilter> readCommand
-        , IInsertCommand<CategoryArg> insertCommand
-        , IUpdateCommand<CategoryArgUpdate> updateCommand)
+        IReadCommand<CategoryArgFilter> read
+        , IInsertCommand<CategoryArg> insert
+        , IUpdateCommand<CategoryArgUpdate> update
+        , IDeleteCommand<DeleteArgs> delete)
     {
-        this.readCommand = readCommand;
-        this.insertCommand = insertCommand;
-        this.updateCommand = updateCommand;
+        this.read = read;
+        this.insert = insert;
+        this.update = update;
+        this.delete = delete;
     }
 
     [DefaultCommand()]
     public void Read(CategoryArgFilter model)
     {
-        readCommand.Read(model);
+        read.Read(model);
     }
 
-    [Command(InsertCommand)]
+    [Command(InsertCmd)]
     public void Insert(CategoryArg model)
     {
-        insertCommand.Insert(model);
+        insert.Insert(model);
         ReadAfterChange();
     }
 
     private void ReadAfterChange()
     {
-        readCommand.Read(new CategoryArgFilter());
+        read.Read(new CategoryArgFilter());
     }
 
-    [Command(UpdateCommand)]
+    [Command(UpdateCmd)]
     public void Update(CategoryArgUpdate model)
     {
-        updateCommand.Update(model);
+        update.Update(model);
+        ReadAfterChange();
+    }
+
+    [Command(DeleteCmd)]
+    public void Delete(DeleteArgs model)
+    {
+        delete.Delete(model);
         ReadAfterChange();
     }
 }

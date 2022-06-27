@@ -29,7 +29,7 @@ public class LogCommands : Commands
         readCommand.Read(model);
     }
 
-    [Command(InsertCommand)]
+    [Command(InsertCmd)]
     public void Insert(LogArg model)
     {
         insertCommand.Insert(model);
@@ -41,7 +41,7 @@ public class LogCommands : Commands
         readCommand.Read(new LogFilterArgs());
     }
 
-    [Command(UpdateCommand)]
+    [Command(UpdateCmd)]
     public void Update(LogArgUpdateReset model)
     {
         updateCommand.Update(model);
