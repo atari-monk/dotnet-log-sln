@@ -5,46 +5,57 @@ using Log.Modern.Lib;
 namespace Log.Modern.ConsoleApp;
 
 [Command(MainCommand)]
-public class LogCommands : Commands
+public class LogCommands
+    : Commands
 {
     private const string MainCommand = "log";
 
-    private readonly IReadCommand<LogFilterArgs> readCommand;
-    private readonly IInsertCommand<LogArg> insertCommand;
-    private readonly IUpdateCommand<LogArgUpdateReset> updateCommand;
+    private readonly IReadCommand<LogFilterArgs> read;
+    private readonly IInsertCommand<LogArg> insert;
+    private readonly IUpdateCommand<LogArgUpdateReset> update;
+    private readonly IDeleteCommand<DeleteArgs> delete;
 
     public LogCommands(
-        IReadCommand<LogFilterArgs> readCommand
-        , IInsertCommand<LogArg> insertCommand
-        , IUpdateCommand<LogArgUpdateReset> updateCommand)
+        IReadCommand<LogFilterArgs> read
+        , IInsertCommand<LogArg> insert
+        , IUpdateCommand<LogArgUpdateReset> update
+        , IDeleteCommand<DeleteArgs> delete)
     {
-        this.readCommand = readCommand;
-        this.insertCommand = insertCommand;
-        this.updateCommand = updateCommand;
+        this.read = read;
+        this.insert = insert;
+        this.update = update;
+        this.delete = delete;
     }
 
     [DefaultCommand()]
     public void Read(LogFilterArgs model)
     {
-        readCommand.Read(model);
+        read.Read(model);
     }
 
     [Command(InsertCmd)]
     public void Insert(LogArg model)
     {
-        insertCommand.Insert(model);
+        insert.Insert(model);
         ReadAfterChange();
     }
 
     private void ReadAfterChange()
     {
-        readCommand.Read(new LogFilterArgs());
+        read.Read(new LogFilterArgs());
     }
 
     [Command(UpdateCmd)]
     public void Update(LogArgUpdateReset model)
     {
-        updateCommand.Update(model);
+        update.Update(model);
+        ReadAfterChange();
+    }
+
+    [Command(DeleteCmd)]
+    public void Delete(DeleteArgs model)
+    {
+        delete.Delete(model);
         ReadAfterChange();
     }
 }
