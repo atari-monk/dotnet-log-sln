@@ -11,14 +11,14 @@ public class LogCommands
     private const string MainCommand = "log";
 
     private readonly IReadCommand<LogFilterArgs> read;
-    private readonly IInsertCommand<LogArg> insert;
-    private readonly IUpdateCommand<LogArgUpdateReset> update;
+    private readonly IInsertCommand<LogInsertArgs> insert;
+    private readonly IUpdateCommand<LogUpdateResetArgs> update;
     private readonly IDeleteCommand<DeleteArgs> delete;
 
     public LogCommands(
         IReadCommand<LogFilterArgs> read
-        , IInsertCommand<LogArg> insert
-        , IUpdateCommand<LogArgUpdateReset> update
+        , IInsertCommand<LogInsertArgs> insert
+        , IUpdateCommand<LogUpdateResetArgs> update
         , IDeleteCommand<DeleteArgs> delete)
     {
         this.read = read;
@@ -34,7 +34,7 @@ public class LogCommands
     }
 
     [Command(InsertCmd)]
-    public void Insert(LogArg model)
+    public void Insert(LogInsertArgs model)
     {
         insert.Insert(model);
         ReadAfterChange();
@@ -46,7 +46,7 @@ public class LogCommands
     }
 
     [Command(UpdateCmd)]
-    public void Update(LogArgUpdateReset model)
+    public void Update(LogUpdateResetArgs model)
     {
         update.Update(model);
         ReadAfterChange();

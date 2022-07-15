@@ -9,14 +9,14 @@ public class TaskCommands : Commands
 {
     private const string MainCommand = "task";
 
-    private readonly IReadCommand<TaskArgFilter> readCommand;
-    private readonly IInsertCommand<TaskArg> insertCommand;
-    private readonly IUpdateCommand<TaskArgUpdate> updateCommand;
+    private readonly IReadCommand<TaskFilterArgs> readCommand;
+    private readonly IInsertCommand<TaskInsertArgs> insertCommand;
+    private readonly IUpdateCommand<TaskUpdateArgs> updateCommand;
 
     public TaskCommands(
-        IReadCommand<TaskArgFilter> readCommand
-        , IInsertCommand<TaskArg> insertCommand
-        , IUpdateCommand<TaskArgUpdate> updateCommand)
+        IReadCommand<TaskFilterArgs> readCommand
+        , IInsertCommand<TaskInsertArgs> insertCommand
+        , IUpdateCommand<TaskUpdateArgs> updateCommand)
     {
         this.readCommand = readCommand;
         this.insertCommand = insertCommand;
@@ -24,13 +24,13 @@ public class TaskCommands : Commands
     }
 
     [DefaultCommand()]
-    public void Read(TaskArgFilter model)
+    public void Read(TaskFilterArgs model)
     {
         readCommand.Read(model);
     }
 
     [Command(InsertCmd)]
-    public void Insert(TaskArg model)
+    public void Insert(TaskInsertArgs model)
     {
         insertCommand.Insert(model);
         ReadAfterChange();
@@ -38,11 +38,11 @@ public class TaskCommands : Commands
 
     private void ReadAfterChange()
     {
-        readCommand.Read(new TaskArgFilter());
+        readCommand.Read(new TaskFilterArgs());
     }
 
     [Command(UpdateCmd)]
-    public void Update(TaskArgUpdate model)
+    public void Update(TaskUpdateArgs model)
     {
         updateCommand.Update(model);
         ReadAfterChange();

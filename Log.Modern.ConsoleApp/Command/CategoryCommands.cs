@@ -10,15 +10,15 @@ public class CategoryCommands
 {
     private const string Main = "category";
 
-    private readonly IReadCommand<CategoryArgFilter> read;
-    private readonly IInsertCommand<CategoryArg> insert;
-    private readonly IUpdateCommand<CategoryArgUpdate> update;
+    private readonly IReadCommand<CategoryFilterArgs> read;
+    private readonly IInsertCommand<CategoryInsertArgs> insert;
+    private readonly IUpdateCommand<CategoryUpdateArgs> update;
     private readonly IDeleteCommand<DeleteArgs> delete;
 
     public CategoryCommands(
-        IReadCommand<CategoryArgFilter> read
-        , IInsertCommand<CategoryArg> insert
-        , IUpdateCommand<CategoryArgUpdate> update
+        IReadCommand<CategoryFilterArgs> read
+        , IInsertCommand<CategoryInsertArgs> insert
+        , IUpdateCommand<CategoryUpdateArgs> update
         , IDeleteCommand<DeleteArgs> delete)
     {
         this.read = read;
@@ -28,13 +28,13 @@ public class CategoryCommands
     }
 
     [DefaultCommand()]
-    public void Read(CategoryArgFilter model)
+    public void Read(CategoryFilterArgs model)
     {
         read.Read(model);
     }
 
     [Command(InsertCmd)]
-    public void Insert(CategoryArg model)
+    public void Insert(CategoryInsertArgs model)
     {
         insert.Insert(model);
         ReadAfterChange();
@@ -42,11 +42,11 @@ public class CategoryCommands
 
     private void ReadAfterChange()
     {
-        read.Read(new CategoryArgFilter());
+        read.Read(new CategoryFilterArgs());
     }
 
     [Command(UpdateCmd)]
-    public void Update(CategoryArgUpdate model)
+    public void Update(CategoryUpdateArgs model)
     {
         update.Update(model);
         ReadAfterChange();
