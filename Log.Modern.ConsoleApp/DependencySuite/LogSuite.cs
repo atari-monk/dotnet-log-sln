@@ -1,5 +1,4 @@
 using CLIHelper.Unity;
-using CommandDotNet.Unity.Helper;
 using Config.Wrapper.Unity;
 using Log.Modern.Lib.Unity;
 using Log.Table.Unity;
@@ -8,10 +7,10 @@ using Unity;
 
 namespace Log.Modern.ConsoleApp;
 
-public class UnityDependencySuite 
+public class LogSuite 
     : DIHelper.Unity.UnityDependencySuite
 {
-    public UnityDependencySuite(
+    public LogSuite(
         IUnityContainer container) 
         : base(container) 
     {
@@ -40,7 +39,4 @@ public class UnityDependencySuite
 
     protected override void RegisterCommands() => 
         RegisterSet<AppCommands>();
-
-    protected override void RegisterProgram() => 
-        RegisterSet<AppProgSet<AppProg>>();
 }

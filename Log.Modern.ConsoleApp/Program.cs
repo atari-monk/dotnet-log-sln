@@ -3,7 +3,7 @@ using Log.Modern.ConsoleApp;
 using Unity;
 
 IBootstraper booter = new Bootstraper(
-	new UnityDependencySuite(
+	new LogSuite(
 		new UnityContainer()
 			.AddExtension(
 				new Diagnostic())));
