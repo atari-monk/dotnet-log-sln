@@ -17,11 +17,11 @@ public class AppDatabase
     public override void Register()
     {
         Container
-            .RegisterSingleton<LogContext>()
+            .RegisterSingleton<LogDbContext>()
 
-            .RegisterSingleton<IRepository<Data.Category>, EFRepository<Data.Category, LogContext>>()
-            .RegisterSingleton<IRepository<Data.Place>, EFRepository<Data.Place, LogContext>>()
-            .RegisterSingleton<IRepository<Data.Task>, EFRepository<Data.Task, LogContext>>()
+            .RegisterSingleton<IRepository<Data.Category>, EFRepository<Data.Category, LogDbContext>>()
+            .RegisterSingleton<IRepository<Data.Place>, EFRepository<Data.Place, LogDbContext>>()
+            .RegisterSingleton<IRepository<Data.Task>, EFRepository<Data.Task, LogDbContext>>()
             .RegisterSingleton<ILogRepo, LogRepo>()
 
             .RegisterSingleton<ILogUnitOfWork, LogUnitOfWork>();
