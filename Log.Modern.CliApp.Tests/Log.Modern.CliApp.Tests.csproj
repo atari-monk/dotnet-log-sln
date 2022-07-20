@@ -22,13 +22,14 @@
     </ItemGroup>
 
     <ItemGroup>
-		<None Update="appsettings.json">
+        <None Update="appsettings.json">
 			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</None>
 	</ItemGroup>
-    
+
     <ItemGroup>
 	  <ProjectReference Include="..\Log.Modern.ConsoleApp\Log.Modern.ConsoleApp.csproj" />
+	  <ProjectReference Include="..\Log.Modern.CliApp.TestApi\Log.Modern.CliApp.TestApi.csproj" />
 	</ItemGroup>
     
     <!-- Debug refs -->

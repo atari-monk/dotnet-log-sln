@@ -351,3 +351,4 @@ MigrationBackup/
 
 Log.Modern.ConsoleApp/appsettings.json
 Log.Modern.CliApp.TestApi/appsettings.json
+Log.Modern.CliApp.Tests/appsettings.json
