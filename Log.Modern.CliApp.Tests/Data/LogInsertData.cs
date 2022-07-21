@@ -1,7 +1,7 @@
 namespace Log.Modern.CliApp.Tests;
 
 public class LogInsertData
-    : TaskInsertData
+    : TaskData
 {
     public static IEnumerable<object[]> Test03 =>
         new List<object[]>

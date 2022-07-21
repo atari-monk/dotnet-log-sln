@@ -1,34 +1,32 @@
-using Log.Data;
 using Log.Modern.CliApp.TestApi;
 using Xunit;
 using XUnit.Helper;
+using Task = Log.Data.Task;
 
 namespace Log.Modern.CliApp.Tests;
 
 [Collection(DbTests)]
 [TestCaseOrderer(OrdererTypeName, OrdererAssemblyName)]
-public class LogInsertTests
+public class TaskUpdateTests
     : OrderTest
     , IClassFixture<LogFixture>
 {
     private LogFixture fixture;
 
-    public LogInsertTests(LogFixture fixture)
+    public TaskUpdateTests(LogFixture fixture)
     {
         this.fixture = fixture;
     }
 
     [Theory]
-    [MemberData(nameof(LogInsertData.Insert01)
-        , MemberType= typeof(LogInsertData))]
+    [MemberData(nameof(TaskData.Insert01), MemberType= typeof(TaskData))]
     public void Test01(params string[] cmd)
     {
         fixture.RunCmd(fixture.Booter, cmd);
     }
 
     [Theory]
-    [MemberData(nameof(TaskData.Insert02)
-        , MemberType= typeof(TaskData))]
+    [MemberData(nameof(TaskData.Insert02), MemberType= typeof(TaskData))]
     public void Test02(params string[] cmd)
     {
         var category = fixture.GetCategory(fixture.Uow, elementIndex: 0);
@@ -38,37 +36,35 @@ public class LogInsertTests
     }
 
     [Theory]
-    [MemberData(nameof(LogInsertData.Test03)
-        , MemberType= typeof(LogInsertData))]
+    [MemberData(nameof(TaskData.Update01), MemberType= typeof(TaskData))]
     public void Test03(params string[] cmd)
     {
-        fixture.RunCmd(fixture.Booter, cmd);
-    }
-
-    [Theory]
-    [MemberData(nameof(LogInsertData.Test04)
-        , MemberType= typeof(LogInsertData))]
-    public void Test04(params string[] cmd)
-    {
-        fixture.AssertLogCount(fixture.Uow, 0);
+        fixture.AssertTaskCount(fixture.Uow, 1);
         var task = fixture.GetTask(fixture.Uow, elementIndex: 0);
-        var place = fixture.GetPlace(fixture.Uow, elementIndex: 0);
+        var categoryOld = fixture.GetCategory(fixture.Uow, elementIndex: 0);
+        fixture.AssertTask(
+            new Task 
+            {
+                CategoryId = categoryOld.Id
+                , Name = "jogging"
+                , Description = "running exercise"
+            }
+            , task);
+        var categoryNew = fixture.GetCategory(fixture.Uow, elementIndex: 1);
         var command = new List<string>(cmd);
         SetValue(command, "taskid", task.Id.ToString());
-        SetValue(command, "placeid", place.Id.ToString());
+        SetValue(command, "categoryid", categoryNew.Id.ToString());
         fixture.RunCmd(fixture.Booter, command.ToArray());
-        fixture.AssertLogCount(fixture.Uow, 1);
-        var data = fixture.GetLog(fixture.Uow, elementIndex: 0);
-        fixture.AssertLog(
-            new LogModel 
+        fixture.AssertTaskCount(fixture.Uow, 1);
+        task = fixture.GetTask(fixture.Uow, elementIndex: 0);
+        fixture.AssertTask(
+            new Task 
             {
-                TaskId = task.Id
-                , Description = "test"
-                , PlaceId = place.Id
-                , Start = new DateTime(2022, 7, 21, 17, 0, 0)
-                , End = new DateTime(2022, 7, 21, 18, 0, 0)
+                CategoryId = categoryNew.Id
+                , Name = "taking shower"
+                , Description = "showering in walk in shower"
             }
-            , data);
+            , task);
     }
 
     private void SetValue(

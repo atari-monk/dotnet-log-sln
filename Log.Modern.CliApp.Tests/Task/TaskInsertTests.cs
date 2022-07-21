@@ -19,14 +19,14 @@ public class TaskInsertTests
     }
 
     [Theory]
-    [MemberData(nameof(TaskInsertData.Test01), MemberType= typeof(TaskInsertData))]
+    [MemberData(nameof(TaskData.Insert01), MemberType= typeof(TaskData))]
     public void Test01(params string[] cmd)
     {
         fixture.RunCmd(fixture.Booter, cmd);
     }
 
     [Theory]
-    [MemberData(nameof(TaskInsertData.Test02), MemberType= typeof(TaskInsertData))]
+    [MemberData(nameof(TaskData.Insert02), MemberType= typeof(TaskData))]
     public void Test02(params string[] cmd)
     {
         fixture.AssertTaskCount(fixture.Uow, 0);
