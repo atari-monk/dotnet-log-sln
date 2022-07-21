@@ -19,7 +19,7 @@ public class PlaceInsertTests
     }
 
     [Theory]
-    [MemberData(nameof(PlaceInsertData.Test01), MemberType= typeof(PlaceInsertData))]
+    [MemberData(nameof(PlaceData.Insert01), MemberType= typeof(PlaceData))]
     public void Test01(params string[] cmd)
     {
         fixture.AssertPlaceCount(fixture.Uow, 0);
@@ -29,8 +29,8 @@ public class PlaceInsertTests
         fixture.AssertPlace(
             new Place 
             { 
-                Name = "test"
-                , Description = "test"
+                Name = "cracow"
+                , Description = "city with 700k cheap labor"
             }
             , data);
     }
