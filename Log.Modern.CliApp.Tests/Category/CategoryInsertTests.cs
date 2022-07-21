@@ -5,7 +5,7 @@ using XUnit.Helper;
 
 namespace Log.Modern.CliApp.Tests;
 
-[Collection("Serial2")]
+[Collection(DbTests)]
 [TestCaseOrderer(OrdererTypeName, OrdererAssemblyName)]
 public class CategoryInsertTests
     : OrderTest
@@ -19,19 +19,19 @@ public class CategoryInsertTests
     }
 
     [Theory]
-    [MemberData(nameof(CategoryInsertData.Test01), MemberType= typeof(CategoryInsertData))]
+    [MemberData(nameof(CategoryData.Insert01), MemberType= typeof(CategoryData))]
     public void Test01(params string[] cmd)
     {
         fixture.AssertCategoryCount(fixture.Uow, 0);
         fixture.RunCmd(fixture.Booter, cmd);
         fixture.AssertCategoryCount(fixture.Uow, 1);
-        var data = fixture.GetCategory(fixture.Uow, elementIndex: 0);
+        var category = fixture.GetCategory(fixture.Uow, elementIndex: 0);
         fixture.AssertCategory(
             new Category 
             { 
-                Name = "test"
-                , Description = "test"
+                Name = "do it yourself"
+                , Description = "is the method of building, modifying, or repairing things by oneself"
             }
-            , data);
+            , category);
     }
 }

@@ -5,7 +5,7 @@ using XUnit.Helper;
 
 namespace Log.Modern.CliApp.Tests;
 
-[Collection("Serial2")]
+[Collection(DbTests)]
 [TestCaseOrderer(OrdererTypeName, OrdererAssemblyName)]
 public class LogInsertTests
     : OrderTest
