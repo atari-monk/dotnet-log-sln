@@ -40,8 +40,8 @@ public class TaskInsertTests
             new Task 
             {
                 CategoryId = category.Id
-                , Name = "test"
-                , Description = "test"
+                , Name = "jogging"
+                , Description = "running exercise"
             }
             , data);
     }
