@@ -65,7 +65,7 @@ public class LogUpdateTests
                 , PlaceId = placeOld.Id
                 , Start = new DateTime(2022, 7, 21, 17, 0, 0)
                 , End = new DateTime(2022, 7, 21, 18, 0, 0)
-                , Time = new TimeSpan(0, 0, 0, 0)
+                , Time = new TimeSpan(0, 1, 0, 0)
             }
             , logOld);
         var command = new List<string>(cmd);
