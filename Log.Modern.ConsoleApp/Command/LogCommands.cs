@@ -37,7 +37,7 @@ public class LogCommands
     public void Insert(LogInsertArgs model)
     {
         insert.Insert(model);
-        ReadAfterChange();
+        //ReadAfterChange();
     }
 
     private void ReadAfterChange()
