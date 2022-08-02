@@ -1,11 +1,5 @@
-﻿using DIHelper;
-using Log.Modern.ConsoleApp;
-using Unity;
+﻿using Log.Modern.ConsoleApp;
 
-IBootstraper booter = new Bootstraper(
-	new LogSuite(
-		new UnityContainer()
-			.AddExtension(
-				new Diagnostic())));
-booter.CreateApp();
-booter.RunApp(args);
+var app = new LogBootstraper();
+app.CreateApp();
+app.RunApp(args);
