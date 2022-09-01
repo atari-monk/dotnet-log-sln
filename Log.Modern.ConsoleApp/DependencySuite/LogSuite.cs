@@ -18,7 +18,7 @@ public class LogSuite
 
     protected override void RegisterAppData()
     {
-        RegisterSet<AppLoggerSet>();
+        RegisterSet<SerilogSet>();
         RegisterSet<AppConfigSet>();
     }
 
