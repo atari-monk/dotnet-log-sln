@@ -8,54 +8,63 @@ namespace Log.Modern.ConsoleApp;
 public class LogCommands
     : Commands
 {
-    private const string MainCommand = "log";
+  private const string MainCommand = "log";
 
-    private readonly IReadCommand<LogFilterArgs> read;
-    private readonly IInsertCommand<LogInsertArgs> insert;
-    private readonly IUpdateCommand<LogUpdateResetArgs> update;
-    private readonly IDeleteCommand<DeleteArgs> delete;
+  private readonly IReadCommand<LogFilterArgs> read;
+  private readonly IReadCommand<LogFilterArgs> sumTime;
+  private readonly IInsertCommand<LogInsertArgs> insert;
+  private readonly IUpdateCommand<LogUpdateResetArgs> update;
+  private readonly IDeleteCommand<DeleteArgs> delete;
 
-    public LogCommands(
-        IReadCommand<LogFilterArgs> read
-        , IInsertCommand<LogInsertArgs> insert
-        , IUpdateCommand<LogUpdateResetArgs> update
-        , IDeleteCommand<DeleteArgs> delete)
-    {
-        this.read = read;
-        this.insert = insert;
-        this.update = update;
-        this.delete = delete;
-    }
+  public LogCommands(
+      IReadCommand<LogFilterArgs> read
+      , ISumTimeCmd<LogFilterArgs> sumTime
+      , IInsertCommand<LogInsertArgs> insert
+      , IUpdateCommand<LogUpdateResetArgs> update
+      , IDeleteCommand<DeleteArgs> delete)
+  {
+    this.read = read;
+    this.sumTime = sumTime;
+    this.insert = insert;
+    this.update = update;
+    this.delete = delete;
+  }
 
-    [DefaultCommand()]
-    public void Read(LogFilterArgs model)
-    {
-        read.Read(model);
-    }
+  [DefaultCommand()]
+  public void Read(LogFilterArgs model)
+  {
+    read.Read(model);
+  }
 
-    [Command(InsertCmd)]
-    public void Insert(LogInsertArgs model)
-    {
-        insert.Insert(model);
-        ReadAfterChange();
-    }
+  [Command("sumtime")]
+  public void SumTime(LogFilterArgs model)
+  {
+    sumTime.Read(model);
+  }
 
-    private void ReadAfterChange()
-    {
-        read.Read(new LogFilterArgs());
-    }
+  [Command(InsertCmd)]
+  public void Insert(LogInsertArgs model)
+  {
+    insert.Insert(model);
+    ReadAfterChange();
+  }
 
-    [Command(UpdateCmd)]
-    public void Update(LogUpdateResetArgs model)
-    {
-        update.Update(model);
-        ReadAfterChange();
-    }
+  private void ReadAfterChange()
+  {
+    read.Read(new LogFilterArgs());
+  }
 
-    [Command(DeleteCmd)]
-    public void Delete(DeleteArgs model)
-    {
-        delete.Delete(model);
-        ReadAfterChange();
-    }
+  [Command(UpdateCmd)]
+  public void Update(LogUpdateResetArgs model)
+  {
+    update.Update(model);
+    ReadAfterChange();
+  }
+
+  [Command(DeleteCmd)]
+  public void Delete(DeleteArgs model)
+  {
+    delete.Delete(model);
+    ReadAfterChange();
+  }
 }
