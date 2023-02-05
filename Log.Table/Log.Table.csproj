@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+    <RestoreSources>$(RestoreSources);C:\atari-monk\nugets;https://api.nuget.org/v3/index.json</RestoreSources>
+	</PropertyGroup>
+  
+	<ItemGroup>
+    <PackageReference Include="DIHelper" Version="1.0.0" />
+    <PackageReference Include="ModelHelper" Version="1.0.0" />
+    <PackageReference Include="DataToTable" Version="1.0.0" />
+		<PackageReference Include="Unity" Version="5.11.10"/>
+		<PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="6.0.0"/>
+	</ItemGroup>
+	
+  <ItemGroup>
+    <ProjectReference Include="..\Log.Data\Log.Data.csproj" />
+  </ItemGroup>
+
+</Project>
