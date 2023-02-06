@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+	
+  <PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+    <RestoreSources>$(RestoreSources);C:\atari-monk\nugets;https://api.nuget.org/v3/index.json</RestoreSources>
+	</PropertyGroup>
+
+	<ItemGroup>
+    <PackageReference Include="EFCore.Helper" Version="1.0.0" />
+    <PackageReference Include="CLIReader" Version="1.0.0" />
+    <PackageReference Include="CLIWizardHelper" Version="1.0.0" />
+		<PackageReference Include="Serilog" Version="2.11.0"/>
+	</ItemGroup>
+	
+  <ItemGroup>
+    <ProjectReference Include="..\Log.Data\Log.Data.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -40,7 +40,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\my-net-libs\XUnit.Helper\XUnit.Helper.csproj" />
+    <ProjectReference Include="..\..\dotnet-my-libs\XUnit.Helper\XUnit.Helper.csproj" />
     <ProjectReference Include="..\Log.Table\Log.Table.csproj" />
     <ProjectReference Include="..\Log.Data\Log.Data.csproj" />
     <ProjectReference Include="..\Log.Modern.Lib\Log.Modern.Lib.csproj" />
